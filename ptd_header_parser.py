@@ -108,6 +108,7 @@ def parse_header(ptd):
                     '[Histogram tables]', '[Unique image iden]']
     tags = ptd.dir()
     for tag in tags:
+        formatted = None
         try:
             if (tag not in exclude_tags) and (type(ptd.get(tag)) != pydicom.sequence.Sequence):
                 value = ptd.get(tag)

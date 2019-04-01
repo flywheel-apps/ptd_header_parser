@@ -1,2 +1,5 @@
 
 .DS_Store
+*.xml
+*.iml
+output/.metadata.json

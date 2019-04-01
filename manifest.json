@@ -20,7 +20,7 @@
 	},
 	"config": {
 		"custom_label": {
-			"default": "PET-files",
+			"default": "info",
 			"description": "String example: any text.",
 			"type": "string"
 		}
