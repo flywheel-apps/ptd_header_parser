@@ -1,0 +1,49 @@
+{
+	"name": "ptd-header-append",
+	"label": "PTD Header Append",
+	"description": "Created by the gear builder. Edit the manifest file to give this gear a description!",
+	"version": "1",
+	"inputs": {
+		"api-key": {
+			"base": "api-key"
+		},
+		"ptd_file": {
+			"base": "file",
+			"description": "A PET file (*.ptd)",
+			"optional": false,
+			"type": {
+				"enum": [
+					"dicom"
+				]
+			}
+		}
+	},
+	"config": {
+		"custom_label": {
+			"default": "PET-files",
+			"description": "String example: any text.",
+			"type": "string"
+		}
+	},
+	"environment": {
+		"GPG_KEY": "0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
+		"LANG": "C.UTF-8",
+		"PATH": "/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+		"PYTHON_PIP_VERSION": "19.0.3",
+		"PYTHON_VERSION": "3.7.2"
+	},
+	"command": "./ptd_header_parser.py",
+	"author": "Kaleb Fischer",
+	"maintainer": "Kaleb Fischer",
+	"cite": "List citations here.",
+	"license": "Other",
+	"source": "",
+	"url": "",
+	"custom": {
+		"gear-builder": {
+			"category": "converter",
+			"container": "96f4c21494a893b811e8f565f113a00e30519c79ee6deb36d5a1e21d9112d919",
+			"image": "gear-builder-ejkulqlllg-20190329123508"
+		}
+	}
+}
