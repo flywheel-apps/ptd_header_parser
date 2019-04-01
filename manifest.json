@@ -2,7 +2,7 @@
 	"name": "ptd-header-append",
 	"label": "PTD Header Append",
 	"description": "Created by the gear builder. Edit the manifest file to give this gear a description!",
-	"version": "1",
+	"version": "4",
 	"inputs": {
 		"api-key": {
 			"base": "api-key"
@@ -20,7 +20,7 @@
 	},
 	"config": {
 		"custom_label": {
-			"default": "info",
+			"default": "PET_files",
 			"description": "String example: any text.",
 			"type": "string"
 		}

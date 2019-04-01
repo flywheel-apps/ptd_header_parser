@@ -172,7 +172,9 @@ if ptd_file.endswith(".ptd"):
     log.info("Parsing PET file: {}".format(ptd_name))
     ptd_header = parse_header(ptd)
     # append header to metadata object
-    metadata_json_out[hierarchy_level][custom_label][ptd_name] = ptd_header
+    file_name = os.path.splitext(ptd_name)[0]
+    metadata_json_out[hierarchy_level][custom_label][file_name] = ptd_header
+
     log.info("Saving PET file header to .metadata.json:{}".format(metadata_json_out))
     with open(output_filepath, 'w') as outfile:
         json.dump(metadata_json_out, outfile, separators=(', ', ': '), sort_keys=True, indent=4)
