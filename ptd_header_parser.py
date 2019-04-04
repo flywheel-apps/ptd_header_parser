@@ -159,10 +159,17 @@ custom_label = config['config']['custom_label']
 # prepare object for .metadata.json file
 metadata_json_out = {
     hierarchy_level: {
-        "info": {
-            custom_label: {}
-        }
+        "files": []
     }
+}
+
+PET_dict = {
+    "name": ptd_name,
+    "info": {
+        "dicom": {}
+    },
+    "modality": "PT"
+    #"file-type": "PTD"
 }
 
 # check if file is actually .ptd
@@ -175,8 +182,8 @@ if ptd_file.endswith(".ptd"):
     ptd_header = parse_header(ptd)
     # append header to metadata object
     file_name = os.path.splitext(ptd_name)[0]
-    metadata_json_out[hierarchy_level]['info'][custom_label][file_name] = ptd_header
-
+    PET_dict['info']['dicom'] = ptd_header
+    metadata_json_out[hierarchy_level]["files"].append(PET_dict)
     log.info("Saving PET file header to .metadata.json:{}".format(metadata_json_out))
     with open(output_filepath, 'w') as outfile:
         json.dump(metadata_json_out, outfile, separators=(', ', ': '), sort_keys=True, indent=4)
