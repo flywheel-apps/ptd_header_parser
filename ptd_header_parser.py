@@ -153,9 +153,6 @@ output_filepath = os.path.join(output_folder, '.metadata.json')
 # determine the level from which the gear was invoked
 hierarchy_level = config['inputs']['ptd_file']['hierarchy']['type']
 
-# read custom label from config
-custom_label = config['config']['custom_label']
-
 # prepare object for .metadata.json file
 metadata_json_out = {
     hierarchy_level: {
@@ -165,9 +162,7 @@ metadata_json_out = {
 
 PET_dict = {
     "name": ptd_name,
-    "info": {
-        "dicom": {}
-    },
+    "info": {},
     "modality": "PT"
     #"file-type": "PTD"
 }
@@ -182,7 +177,7 @@ if ptd_file.endswith(".ptd"):
     ptd_header = parse_header(ptd)
     # append header to metadata object
     file_name = os.path.splitext(ptd_name)[0]
-    PET_dict['info']['dicom'] = ptd_header
+    PET_dict['info'] = ptd_header
     metadata_json_out[hierarchy_level]["files"].append(PET_dict)
     log.info("Saving PET file header to .metadata.json:{}".format(metadata_json_out))
     with open(output_filepath, 'w') as outfile:

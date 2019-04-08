@@ -15,13 +15,7 @@
 			}
 		}
 	},
-	"config": {
-		"custom_label": {
-			"default": "PET_file",
-			"description": "String example: any text.",
-			"type": "string"
-		}
-	},
+	"config": {},
 	"environment": {
 		"GPG_KEY": "0D96DF4D4110E5C43FBFB17F2D347EA6AA65421D",
 		"LANG": "C.UTF-8",
