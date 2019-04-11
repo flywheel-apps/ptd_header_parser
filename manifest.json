@@ -2,7 +2,7 @@
 	"name": "ptd-header-append",
 	"label": "PTD Header Append",
 	"description": "Created by the gear builder. Edit the manifest file to give this gear a description!",
-	"version": "16",
+	"version": "17",
 	"inputs": {
 		"ptd_file": {
 			"base": "file",

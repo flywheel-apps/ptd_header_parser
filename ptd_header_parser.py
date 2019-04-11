@@ -162,9 +162,13 @@ metadata_json_out = {
 
 PET_dict = {
     "name": ptd_name,
-    "info": {},
-    "modality": "PT"
-    #"file-type": "PTD"
+    "info": {
+        "header": {
+            "dicom": {}
+        }
+    },
+    "modality": "PT",
+    "type": "Raw PET"
 }
 
 # check if file is actually .ptd
@@ -177,7 +181,7 @@ if ptd_file.endswith(".ptd"):
     ptd_header = parse_header(ptd)
     # append header to metadata object
     file_name = os.path.splitext(ptd_name)[0]
-    PET_dict['info'] = ptd_header
+    PET_dict['info']['header']['dicom'] = ptd_header
     metadata_json_out[hierarchy_level]["files"].append(PET_dict)
     log.info("Saving PET file header to .metadata.json:{}".format(metadata_json_out))
     with open(output_filepath, 'w') as outfile:
